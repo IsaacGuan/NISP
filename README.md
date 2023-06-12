@@ -2,6 +2,8 @@
 
 This repository contains the experimental code and data for training a neural network that learns to implicitly represent the parameterization charts of the object surface, as described in the paper ["Learning Neural Implicit Representations with Surface Signal Parameterizations"](https://arxiv.org/abs/2211.00519).
 
+![representative](representative.png)
+
 ## Data
 
 The experimental data is in the `data` folder, where `data/shapes` stores the OBJ files for the experimental 3D objects containing the triangle meshes and UV maps, `data/diffuse-maps` stores the diffuse maps, `data/normal-maps` stores the normal maps, and `sdf-models` stores the pre-trained neural implicit surfaces of the 3D objects learned by [OverfitSDF](https://github.com/daviesthomas/overfitSDF).

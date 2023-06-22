@@ -8,15 +8,27 @@ This repository contains the experimental code and data for training a neural ne
 
 The experimental data is in the `data` folder, where `data/shapes` stores the OBJ files for the experimental 3D objects containing the triangle meshes and UV maps, `data/diffuse-maps` stores the diffuse maps, `data/normal-maps` stores the normal maps, and `sdf-models` stores the pre-trained neural implicit surfaces of the 3D objects learned by [OverfitSDF](https://github.com/daviesthomas/overfitSDF).
 
+## Dependencies
+
+All the dependencies are packaged in `environment.yml` that can be installed using [conda](https://docs.conda.io/).
+```bash
+conda env create -f environment.yml
+```
+The conda environment can then be activated.
+```bash
+conda activate nisp
+```
+All the following commands are run in this conda environment.
+
 ## Training
 
 Use `main.py` for training our model, with the argument `--train` turned on. For example,
 ```bash
 python main.py --train --model_name apple_strudel --fourier_max_freq 10 --use_siren
 ```
-where `--model_name` refers to the name of the object, such as `apple`, `banana`, and so on (see the files in `data/shapes`); `--fourier_max_freq` controls the number of Fourier series the input is encoded into; and `--use_siren` controls whether the SIREN layer is implemented for the hidden layers. For running other comparative baseline models, please use the argument `--texture_model_type`, and run with value `color` or `uv`.
+where `--model_name` refers to the name of the object, such as `apple_strudel`, `broad_leaf_succulent`, and so on (see the files in `data/shapes`); `--fourier_max_freq` controls the number of Fourier series the input is encoded into; and `--use_siren` controls whether the SIREN layer is implemented for the hidden layers. For running other comparative baseline models, please use the argument `--texture_model_type`, and run with value `color` or `uv`.
 
-The trained model and the output files generated during training will be saved in `decomposed-uv-mapper` (or in `color-mapper` or `uv-mapper`) in the `results` folder, depending on the type of model being trained.
+The trained models and the output files generated during training will be saved in `decomposed-uv-mapper` (or in `color-mapper` or `uv-mapper`) in the `results` folder, depending on the type of model being trained.
 
 ## Rendering
 
